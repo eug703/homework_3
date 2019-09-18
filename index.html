@@ -37,23 +37,24 @@
     document.onkeyup = function(event) {
 
       var userGuess = event.key;
+      var userGuess2 = userGuess.toLowerCase();
       var computerGuess = computerChoices[Math.floor(Math.random() * computerChoices.length)];
 
-      yourletters.push(userGuess);
+      yourletters.push(userGuess2);
 
-      if (userGuess === computerGuess) {
+      if (userGuess2 === computerGuess) {
           wins++;
-      }
+        }
       else {
           if (guessesleft <= 0){
               losses++;
               yourletters = [];
               guessesleft = 9;
-          }
+        }
           else {
             guessesleft--;
-          }
-      }
+            }  
+        }
         directionsText.textContent = "";
         headerText.textContent= "The Psychic Game";
         stockText.textContent = "Guess what letter I'm thinking of.";
